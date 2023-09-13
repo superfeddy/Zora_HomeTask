@@ -1,6 +1,6 @@
 "use client";
 
-import SearchBox from "@/libs/components/SearchBox/SearchBox";
+import SearchBox from "@components/SearchBox";
 import { FC, useState } from "react";
 
 const ClientLayout: FC = () => {
