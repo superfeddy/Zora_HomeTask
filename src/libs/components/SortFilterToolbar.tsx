@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { AVAILABLE_COLORS } from "../constants/colors";
-import { SORT_MODE } from "../constants/sortMode";
+import { AVAILABLE_COLORS } from "../constants/colors.const";
+import { SORT_MODE } from "../constants/sortMode.const";
 
 interface SortFilterToolbarProps {
   sortMethod: string;
