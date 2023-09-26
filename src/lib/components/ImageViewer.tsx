@@ -1,5 +1,5 @@
-import { FC } from 'react';
 import { IImageInfo } from '@type/ImageInfo.type';
+import { FC } from 'react';
 
 interface IImageViewer {
   images: IImageInfo[];

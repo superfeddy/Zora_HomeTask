@@ -1,6 +1,7 @@
 import { IFilterOption } from '@type/FilterOptions.type';
-import { useState, useEffect } from 'react';
 import { IImageInfo } from '@type/ImageInfo.type';
+import { useEffect, useState } from 'react';
+
 import { fetchImages } from '@utils/fetchImages';
 
 interface IData {

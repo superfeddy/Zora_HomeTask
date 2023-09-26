@@ -1,9 +1,11 @@
 'use client';
 
+import { FC, useState } from 'react';
+
 import ImageViewer from '@components/ImageViewer';
 import SearchBox from '@components/SearchBox';
 import SortFilterToolbar from '@components/SortFilterToolbar';
-import { FC, useState } from 'react';
+
 import { useImages } from '@hooks/useImages';
 
 const ClientLayout: FC = () => {

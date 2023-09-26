@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import { AVAILABLE_COLORS } from '@constants/colors.const';
 import { SORT_MODE } from '@constants/sortMode.const';
 
