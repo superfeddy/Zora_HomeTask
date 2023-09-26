@@ -2,14 +2,14 @@ import { FC } from "react";
 import { AVAILABLE_COLORS } from "../constants/colors.const";
 import { SORT_MODE } from "../constants/sortMode.const";
 
-interface SortFilterToolbarProps {
+interface ISortFilterToolbar {
   sortMethod: string;
   setSortMethod: (newMethod: string) => void;
   colorFilter: string;
   setColorFilter: (color: string) => void;
 }
 
-const SortFilterToolbar: FC<SortFilterToolbarProps> = ({
+const SortFilterToolbar: FC<ISortFilterToolbar> = ({
   sortMethod,
   setSortMethod,
   colorFilter,

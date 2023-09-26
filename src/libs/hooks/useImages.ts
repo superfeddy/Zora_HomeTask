@@ -49,5 +49,9 @@ export const useImages = ({
     fetchData();
   }, [keyword, sortMethod, colorFilter]);
 
-  return [isLoading, isError, imageData];
+  return {
+    isLoading,
+    isError,
+    imageData,
+  };
 };

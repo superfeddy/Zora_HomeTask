@@ -1,11 +1,11 @@
 import { FC } from "react";
 
-interface SearchBoxProps {
+interface ISearchBox {
   keyword: string;
   setKeyword: (newKeyword: string) => void;
 }
 
-const SearchBox: FC<SearchBoxProps> = ({ keyword, setKeyword }) => {
+const SearchBox: FC<ISearchBox> = ({ keyword, setKeyword }) => {
   return (
     <input
       type="text"

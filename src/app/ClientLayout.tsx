@@ -1,13 +1,20 @@
 "use client";
 
+import ImageViewer from "@components/ImageViewer";
 import SearchBox from "@components/SearchBox";
 import SortFilterToolbar from "@components/SortFilterToolbar";
 import { FC, useState } from "react";
+import { useImages } from "../libs/hooks/useImages";
 
 const ClientLayout: FC = () => {
   const [keyword, setKeyword] = useState("");
   const [sortMethod, setSortMethod] = useState("relevant");
   const [colorFilter, setColorFilter] = useState("");
+  const { isLoading, isError, imageData } = useImages({
+    keyword,
+    sortMethod,
+    colorFilter,
+  });
 
   return (
     <div className="flex justify-center min-h-screen text-2xl">
@@ -22,6 +29,9 @@ const ClientLayout: FC = () => {
           colorFilter={colorFilter}
           setColorFilter={setColorFilter}
         />
+        {!isLoading && !isError && imageData?.images && (
+          <ImageViewer images={imageData.images} />
+        )}
       </div>
     </div>
   );

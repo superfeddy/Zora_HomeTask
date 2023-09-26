@@ -11,9 +11,12 @@ export const fetchImages = async ({
   sortMethod,
   colorFilter,
 }: IFilterOption) => {
-  const url = `${process.env.API_BASE_URL}/search/photos?client_id=${
-    process.env.UNSPLASH_ACCESS_KEY
-  }&order_by=${sortMethod}${keyword ?? `&query=${keyword}`}${
+  console.log("@Debug Point: ", process.env);
+  const url = `${
+    process.env.NEXT_PUBLIC_API_BASE_URL
+  }/search/photos?client_id=${
+    process.env.NEXT_PUBLIC_UNSPLASH_ACCESS_KEY
+  }&order_by=${sortMethod}${keyword ? `&query=${keyword}` : ""}${
     colorFilter && `&color=${colorFilter}`
   }`;
   try {
