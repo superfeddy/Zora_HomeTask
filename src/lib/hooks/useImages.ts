@@ -1,7 +1,7 @@
-import { IFilterOption } from "../types/FilterOptions.type";
-import { useState, useEffect } from "react";
-import { IImageInfo } from "../types/ImageInfo.types";
-import { fetchImages } from "../helper/fetchImages";
+import { IFilterOption } from '@type/FilterOptions.type';
+import { useState, useEffect } from 'react';
+import { IImageInfo } from '@type/ImageInfo.type';
+import { fetchImages } from '@utils/fetchImages';
 
 interface IData {
   images: IImageInfo[];
@@ -12,7 +12,7 @@ interface IData {
 export const useImages = ({
   keyword,
   sortMethod,
-  colorFilter,
+  colorFilter
 }: IFilterOption) => {
   const [isLoading, setLoading] = useState(false);
   const [isError, setError] = useState(false);
@@ -24,14 +24,14 @@ export const useImages = ({
         const { images, total, total_pages } = await fetchImages({
           keyword,
           sortMethod,
-          colorFilter,
+          colorFilter
         });
         setLoading(false);
         setError(false);
         setImageData({
           images,
           total,
-          total_pages,
+          total_pages
         });
       } catch (error) {
         setLoading(false);
@@ -52,6 +52,6 @@ export const useImages = ({
   return {
     isLoading,
     isError,
-    imageData,
+    imageData
   };
 };

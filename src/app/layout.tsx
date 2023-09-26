@@ -1,11 +1,11 @@
-import "./globals.css";
+import './globals.css';
 
 export const metadata = {
-  title: "Zora Home Challenge",
+  title: 'Zora Home Challenge'
 };
 
 export default function RootLayout({
-  children,
+  children
 }: {
   children: React.ReactNode;
 }) {

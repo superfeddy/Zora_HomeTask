@@ -1,19 +1,19 @@
-"use client";
+'use client';
 
-import ImageViewer from "@components/ImageViewer";
-import SearchBox from "@components/SearchBox";
-import SortFilterToolbar from "@components/SortFilterToolbar";
-import { FC, useState } from "react";
-import { useImages } from "../libs/hooks/useImages";
+import ImageViewer from '@components/ImageViewer';
+import SearchBox from '@components/SearchBox';
+import SortFilterToolbar from '@components/SortFilterToolbar';
+import { FC, useState } from 'react';
+import { useImages } from '@hooks/useImages';
 
 const ClientLayout: FC = () => {
-  const [keyword, setKeyword] = useState("");
-  const [sortMethod, setSortMethod] = useState("relevant");
-  const [colorFilter, setColorFilter] = useState("");
+  const [keyword, setKeyword] = useState('');
+  const [sortMethod, setSortMethod] = useState('relevant');
+  const [colorFilter, setColorFilter] = useState('');
   const { isLoading, isError, imageData } = useImages({
     keyword,
     sortMethod,
-    colorFilter,
+    colorFilter
   });
 
   return (
