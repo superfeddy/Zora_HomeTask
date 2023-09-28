@@ -11,9 +11,10 @@ describe('<ImageViewer />', () => {
   });
   describe('when isLoading is false', () => {
     const errorMsg = 'There were some errors while fetching the image data.';
+    const notFoundErrorMsg = 'Images not found.';
     describe('when isError is true', () => {
       it('should render an error message', () => {
-        render(<ImageViewer isLoading={false} isError={true} images={[]} />);
+        render(<ImageViewer isLoading={false} isError={true} />);
         expect(screen.getByText(errorMsg)).toBeInTheDocument();
       });
     });
@@ -21,6 +22,12 @@ describe('<ImageViewer />', () => {
       it('should render an error message', () => {
         render(<ImageViewer isLoading={false} isError={false} />);
         expect(screen.getByText(errorMsg)).toBeInTheDocument();
+      });
+    });
+    describe('when image info is empty', () => {
+      it('should render the appropriate error message', () => {
+        render(<ImageViewer isLoading={false} isError={false} images={[]} />);
+        expect(screen.getByText(notFoundErrorMsg)).toBeInTheDocument();
       });
     });
     describe('when isError is false and images is not undefined', () => {

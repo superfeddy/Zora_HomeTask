@@ -30,6 +30,12 @@ const ImageViewer: FC<IImageViewer> = ({
         </h1>
       </div>
     );
+  } else if (images.length === 0) {
+    return (
+      <div className="w-screen h-60 flex justify-center items-center">
+        <h1 className="text-4xl font-bold">Images not found.</h1>
+      </div>
+    );
   }
   return (
     <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 place-content-between place-items-center gap-5">
