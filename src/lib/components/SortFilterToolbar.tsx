@@ -26,6 +26,7 @@ const SortFilterToolbar: FC<ISortFilterToolbar> = ({
             onChange={e => setSortMethod(e.target.value)}
             value={sortMethod}
             className="px-4 py-2"
+            data-testid="selector-sort-method"
           >
             {SORT_MODE.map(option => (
               <option key={option} value={option} className="capitalize">
@@ -40,6 +41,7 @@ const SortFilterToolbar: FC<ISortFilterToolbar> = ({
             onChange={e => setColorFilter(e.target.value)}
             value={colorFilter}
             className="px-4 py-2"
+            data-testid="selector-filter-color"
           >
             <option value="" className="capitalize">
               all
