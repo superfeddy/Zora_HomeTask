@@ -3,7 +3,7 @@
     "next/core-web-vitals",
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/strict",
     "plugin:prettier/recommended",
     "plugin:react/recommended"
   ],
@@ -15,10 +15,19 @@
   "plugins": ["@typescript-eslint", "unused-imports"],
   "rules": {
     "react/react-in-jsx-scope": "off",
-    "@typescript-eslint/no-unused-vars": ["warn", { "args": "none" }],
-    "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/no-namespace": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      { "args": "none", "argsIgnorePattern": "^_" }
+    ],
+    "@typescript-eslint/no-inferrable-types": "error",
     "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/array-type": "off",
+    "@typescript-eslint/non-nullable-type-assertion-style": "off",
+    "@typescript-eslint/no-unsafe-enum-comparison": "off",
+    "@typescript-eslint/consistent-indexed-object-style": [
+      "error",
+      "index-signature"
+    ],
     "@typescript-eslint/quotes": [
       "error",
       "single",
@@ -26,7 +35,8 @@
     ],
     "curly": ["error", "all"],
     "eqeqeq": "error",
-    "prefer-arrow-callback": "error"
+    "prefer-arrow-callback": "error",
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
   },
   "settings": {
     "react": {
