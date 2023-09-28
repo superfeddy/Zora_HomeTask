@@ -1,34 +1,61 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Zora Collect - FE take home challenge
+
+## Requirement
+
+1. Should be able to fetch the images.
+2. Search the images with the keywords.
+3. Filter the images with the color channels.
+4. Sort the images with some aspects.
+5. View must be paginated.
+6. Notify that there are no results.
+
+## What I implemented
+
+- Created a helper function and custom hook to fetch the information.
+- Created individual components to build the page.
+- Implemented debouncing for the keyword input to avoid rate limitation.
+- Implemented pagination.
+- Implemented responsive design.
+- Implemented unit testing for the react components.
+
+## Possibly can be updated
+
+- Implement E2E & Integration testing for the project.
+- Implement Error Pages(400 page, 404 page, 500 page...).
+
+## Tech-Stack
+
+- Next 13.4 project bootstraped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+- Tailwind CSS for styling.
+- react-responsive-pagination for pagination component.
+- Jest and React Testing Library for unit testing.
 
 ## Getting Started
 
-First, run the development server:
+- Configuring Env variables
+  Copy the `.env` file to `.env.local` and add the below information.
+
+```Javascript
+NEXT_PUBLIC_API_BASE_URL="https://api.unsplash.com"
+NEXT_PUBLIC_UNSPLASH_ACCESS_KEY= //Your unsplash accesskey here.
+```
+
+- Run Dev Server
 
 ```bash
-npm run dev
-# or
 yarn dev
-# or
-pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Build the project
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+yarn build
+```
 
-## Learn More
+- Run the Unit testing
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+yarn test:unit
+```
