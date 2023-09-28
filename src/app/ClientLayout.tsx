@@ -1,6 +1,8 @@
 'use client';
 
 import { FC, useState } from 'react';
+import ResponsivePagination from 'react-responsive-pagination';
+import { useDebounce } from 'usehooks-ts';
 
 import ImageViewer from '@components/ImageViewer';
 import SearchBox from '@components/SearchBox';
@@ -12,10 +14,13 @@ const ClientLayout: FC = () => {
   const [keyword, setKeyword] = useState('');
   const [sortMethod, setSortMethod] = useState('relevant');
   const [colorFilter, setColorFilter] = useState('');
+  const [pageNumber, setPageNumber] = useState(1);
+  const debouncedKeyword = useDebounce(keyword, 300);
   const { isLoading, isError, imageData } = useImages({
-    keyword,
+    keyword: debouncedKeyword,
     sortMethod,
-    colorFilter
+    colorFilter,
+    pageNumber
   });
 
   return (
@@ -31,9 +36,18 @@ const ClientLayout: FC = () => {
           colorFilter={colorFilter}
           setColorFilter={setColorFilter}
         />
-        {!isLoading && !isError && imageData?.images && (
-          <ImageViewer images={imageData.images} />
-        )}
+        <ImageViewer
+          images={imageData?.images}
+          isLoading={isLoading}
+          isError={isError}
+        />
+        <div className="w-1/3">
+          <ResponsivePagination
+            current={pageNumber}
+            total={imageData?.total_pages || 0}
+            onPageChange={page => setPageNumber(page)}
+          />
+        </div>
       </div>
     </div>
   );

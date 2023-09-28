@@ -13,7 +13,8 @@ interface IData {
 export const useImages = ({
   keyword,
   sortMethod,
-  colorFilter
+  colorFilter,
+  pageNumber = 1
 }: IFilterOption) => {
   const [isLoading, setLoading] = useState(false);
   const [isError, setError] = useState(false);
@@ -25,7 +26,8 @@ export const useImages = ({
         const { images, total, total_pages } = await fetchImages({
           keyword,
           sortMethod,
-          colorFilter
+          colorFilter,
+          pageNumber
         });
         setLoading(false);
         setError(false);
@@ -48,7 +50,7 @@ export const useImages = ({
 
     //  Fetch data
     fetchData();
-  }, [keyword, sortMethod, colorFilter]);
+  }, [keyword, sortMethod, colorFilter, pageNumber]);
 
   return {
     isLoading,

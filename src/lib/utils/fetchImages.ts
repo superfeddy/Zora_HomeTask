@@ -9,15 +9,16 @@ interface IResponseResult {
 export const fetchImages = async ({
   keyword,
   sortMethod,
-  colorFilter
+  colorFilter,
+  pageNumber = 1
 }: IFilterOption) => {
   const url = `${
     process.env.NEXT_PUBLIC_API_BASE_URL
   }/search/photos?client_id=${
     process.env.NEXT_PUBLIC_UNSPLASH_ACCESS_KEY
-  }&order_by=${sortMethod}${keyword ? `&query=${keyword}` : ''}${
+  }&per_page=12&order_by=${sortMethod}${keyword ? `&query=${keyword}` : ''}${
     colorFilter && `&color=${colorFilter}`
-  }`;
+  }&page=${pageNumber}`;
   const jsonData = await fetch(url);
   const { results, total_pages, total } = await jsonData.json();
   const images = results.map(({ urls }: IResponseResult) => urls);

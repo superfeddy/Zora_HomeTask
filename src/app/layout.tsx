@@ -1,3 +1,5 @@
+import 'react-responsive-pagination/themes/bootstrap.css';
+
 import './globals.css';
 
 export const metadata = {
