@@ -11,7 +11,6 @@ module.exports = {
   modulePathIgnorePatterns: ['<rootDir>/e2e-tests'],
   collectCoverageFrom: [
     '**/components/**/*.{ts,tsx}',
-    '**/hooks/*.{ts,tsx}',
     '**/utils/*.{ts,tsx}',
     '!**/node_modules/**'
   ],
